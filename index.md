@@ -14,7 +14,7 @@ Esistono varie versioni del JDK, quella di riferimento è OpenJDK, a partire dal
 
 A sua volta, OpenJDK è distribuito in forma di sorgente, e vari distributori ne forniscono versioni binarie.
 Fra questi, [Adoptium](https://adoptium.net/).
-La macchina virtuale Java di riferimento sarà OpenJDK 17 come fornita da Adoptium.
+La macchina virtuale Java di riferimento sarà OpenJDK 25 come fornita da Adoptium.
 
 Seguono le istruzioni di installazione e configuazione per i vari sistemi operativi.
 
@@ -22,99 +22,40 @@ Seguono le istruzioni di installazione e configuazione per i vari sistemi operat
 
 ### Arch e derivate (Manjaro, Bridge, SteamOS...)
 
-Arch offre il pacchetto OpenJDK 17 direttamente nel repository `extra`:
+Arch offre il pacchetto OpenJDK 25 direttamente nel repository `extra`:
 
 ```bash
 sudo pacman -Syu
-sudo pacman -S jdk17-openjdk
+sudo pacman -S jdk25-openjdk
 ```
 
 È possibile avere più ambienti Java installati contemporaneamente, si può selezionare quello corrente utilizzando il comando ``archlinux-java``.
-Per assicurarsi di star lavorando con OpenJDK 17, si utilizzi:
+Per assicurarsi di star lavorando con OpenJDK 25, si utilizzi:
 
 ```bash
-sudo archlinux-java set java-17-openjdk
+sudo archlinux-java set java-25-openjdk
 ```
 
 ### Debian e Ubuntu
 
-Installare il deb da: [https://pkgs.org/download/openjdk-17-jdk](https://pkgs.org/download/openjdk-17-jdk)
+Installare il deb da: [https://pkgs.org/download/openjdk-25-jdk](https://pkgs.org/download/openjdk-25-jdk)
 
 ### Altre distribuzioni
 
-Data la varietà di versioni, distribuzioni sorgenti, e distribuzioni binarie di JVM, esiste un tool Linux che consente di installare quella desiderata e cambiarla rapidamente.
-Il tool è [Jabba](https://github.com/shyiko/jabba).
-
-Per installare Jabba su Linux o Mac OS X, si lanci il seguente comando da terminale:
-
-```bash
-curl -sL https://github.com/shyiko/jabba/raw/master/install.sh | bash && . ~/.jabba/jabba.sh
-```
-
-Una volta che Jabba è installato, può essere utilizzato per installare il JDK.
-Si elenchino tutte le versioni di OpenJDK utilizzando
-
-```bash
-jabba ls-remote openjdk@
-```
-
-Quindi si selezioni la più recente fra le versioni 17, ad esempio se l'output è:
-
-```bash
-openjdk@1.17.0
-openjdk@1.16.0
-openjdk@1.16.0-1
-openjdk@1.15.0
-openjdk@1.15.0-2
-openjdk@1.15.0-1
-openjdk@1.14.0
-openjdk@1.14.0-2
-openjdk@1.14.0-1
-openjdk@1.13.0
-openjdk@1.13.0-2
-openjdk@1.13.0-1
-openjdk@1.12.0
-openjdk@1.12.0-2
-openjdk@1.12.0-1
-openjdk@1.11.0
-openjdk@1.11.0-2
-openjdk@1.11.0-1
-openjdk@1.10.0
-openjdk@1.10.0-2
-openjdk@1.10.0-1
-openjdk@1.9.0
-openjdk@1.9.0-4
-openjdk@1.9.0-1
-```
-
-Si scelga `openjdk@1.17.0`.
-A questo punto si installi utilizzando i seguenti comandi:
-
-```bash
-jabba install openjdk@1.17.0
-jabba use openjdk@1.17.0
-```
-
-Per impostare una versione di default del JDK da usare (senza dover ogni volta utilizzare `jabba use`) all'apertura di un nuovo terminale, si usi il seguente comando:
-
-```bash
-jabba alias default <default-version>
-```
-
-Infatti, all'installazione, Jabba modifica file nella `$HOME` come`.bashrc`, `.bash_profile`, o `.zshrc` per chiamare `$HOME/.jabba/jabba.sh`; in quest'ultimo script, un comando `jabba use default` viene invocato: l'effetto è che all'apertura di un nuovo terminale, verrà automaticamente indicato di usare la versione di default del JDK indicata con Jabba.
+Contattare il docente di laboratorio
 
 ## macOS
 
-Si seguano le istruzioni per Linux / Jabba.
+Contattare il docente di laboratorio
 
 ## Windows
 
 ### Tramite `winget`
 
-È possibile installare la distribuzione di Adoptium JDK 17 attraverso il seguente comando su `PowerShell`:
+È possibile installare la distribuzione di Adoptium JDK 25 attraverso il seguente comando su `PowerShell`:
 
 ```powershell
-winget install -e --id EclipseAdoptium.Temurin.17.JDK
+winget install -e --id EclipseAdoptium.Temurin.25.JDK
 ```
 
 L'installazione del pacchetto dovrebbe automaticamente impostare la variabile d'ambiente `JAVA_HOME` correttamente.  
@@ -127,7 +68,7 @@ Riavviare la `PowerShell` per verificare la corretta installazione del JDK.
 I passi in comune a tutte le versioni di Windows sono i seguenti (di seguito si fa riferimento a Windows 10, analogamente per le versioni precedenti con eventuali variazioni in termini di interfaccia utente):
 
 1. Scaricare il JDK dalla [pagina di download ufficiale di Adoptium](https://adoptium.net/temurin/releases).
-   Scegliere la versione 17, filtrando anche per sistema operativo (Windows) e per architettura (x64). Cliccare il download <i class="fa fa-download"></i>`.msi`.
+   Scegliere la versione 25, filtrando anche per sistema operativo (Windows) e per architettura (x64). Cliccare il download <i class="fa fa-download"></i>`.msi`.
    
    ![Missing image](img/win10/adopt1.png)
    
@@ -155,48 +96,26 @@ Su Windows sono disponibli diversi pacakge manager non ufficiali o semi-ufficial
 
 #### Opzione 1: Chocolatey
 
-Se sulla macchina [è installato Chocolatey](https://chocolatey.org/docs/installation), è possibile installare OpenJDK 17 eseguendo il seguente comando su un terminale con permessi di amministratore:
+Se sulla macchina [è installato Chocolatey](https://chocolatey.org/docs/installation), è possibile installare OpenJDK 25 eseguendo il seguente comando su un terminale con permessi di amministratore:
 
 ```powershell
-choco install openjdk17
+choco install openjdk25
 ```
 
 L'installazione dovrebbe eseguire una configurazione automatica delle variabili d'ambiente.
 
 #### Opzione 2: Scoop
 
-Se sulla macchina [è installato Scoop](https://scoop.sh), è possibile installare OpenJDK 17 eseguendo il seguente comando su un terminale:
+Se sulla macchina [è installato Scoop](https://scoop.sh), è possibile installare OpenJDK 25 eseguendo il seguente comando su un terminale:
 
 ```powershell
 scoop bucket add java
 
-scoop install openjdk17
+scoop install openjdk25
 ```
 
 Non è necessario utilizzare un terminale con permessi di amministratore.
 L'installazione dovrebbe eseguire una configurazione automatica delle variabili d'ambiente.
-
-#### Opzione 3: Jabba
-
-**Nota**: le ultime versioni presentano alcuni bug nell'installazione e dunque questa soluzione non è consigliata
-
-Per installare Jabba su Windows 10, si lanci il seguente comando su un terminale Powershell:
-
-```powershell
-[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-Invoke-Expression (
-  Invoke-WebRequest https://github.com/shyiko/jabba/raw/master/install.ps1 -UseBasicParsing
-).Content
-```
-
-A questo punto si installi utilizzando i seguenti comandi:
-
-```bash
-jabba install openjdk@1.17.0
-jabba use openjdk@1.17.0
-```
-
-Jabba installa il JDK desiderato in una cartella dedicata nella user home dell'utente, ovvero: `%HOMEPATH%\.jabba\jdk\<version>`.
 
 ### Configurazione manuale delle variabili d'ambiente
 
@@ -254,16 +173,15 @@ e si osservi il risultato. L'output atteso dovrà essere analogo a:
 
 ```bash
 $ java -version
-openjdk version "17.0.4" 2022-07-19
-OpenJDK Runtime Environment (build 17.0.4+8)
-OpenJDK 64-Bit Server VM (build 17.0.4+8, mixed mode)
-
+openjdk version "25" 2025-09-16
+OpenJDK Runtime Environment (build 25+36-3489)
+OpenJDK 64-Bit Server VM (build 25+36-3489, mixed mode, sharing)
 
 $ javac -version
-javac 17.0.4
+javac 25
 ```
 
-Si noti, in particolare, la versione 17, ed il provider AdoptOpenJDK.
+Si noti, in particolare, la versione 25.
 
 
 # Visual Studio Code
