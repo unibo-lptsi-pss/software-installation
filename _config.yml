@@ -1,10 +1,10 @@
 # Site settings
-title: "Software installation for OOP @ DISI"
+title: "Software installation for PSS @ DISI"
 email: danilo.pianini@unibo.it
 description: > # this means to ignore newlines until "baseurl:"
   Course software installation
 baseurl: "/software-installation" # the subpath of your site, e.g. /blog/
-url: "http://unibo-oop.github.io" # the base hostname & protocol for your site
+url: "http://unibo-pss.github.io" # the base hostname & protocol for your site
 twitter_username: DanySK86
 github_username:  danysk
 encoding: utf-8

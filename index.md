@@ -26,8 +26,14 @@ Arch offre il pacchetto OpenJDK 25 direttamente nel repository `extra`:
 
 ```bash
 sudo pacman -Syu
-sudo pacman -S jdk25-openjdk
+sudo pacman -S jdk-openjdk
 ```
+
+**Nota per questo inizio dell'anno**:
+Ancora OpenJDK 25 non è disponibile nei repository ufficiali di Manjaro, per cui si consiglia di utilizzare AUR via yay:
+```
+yay -S java-openjdk-bin
+``` 
 
 È possibile avere più ambienti Java installati contemporaneamente, si può selezionare quello corrente utilizzando il comando ``archlinux-java``.
 Per assicurarsi di star lavorando con OpenJDK 25, si utilizzi:
@@ -36,6 +42,11 @@ Per assicurarsi di star lavorando con OpenJDK 25, si utilizzi:
 sudo archlinux-java set java-25-openjdk
 ```
 
+**Nota per questo inizio dell'anno**:
+Se avete usato la version binaria da AUR, il comando sarà:
+```
+sudo archlinux-java set java-25-openjdk-bin
+```
 ### Debian e Ubuntu
 
 Installare il deb da: [https://pkgs.org/download/openjdk-25-jdk](https://pkgs.org/download/openjdk-25-jdk)
@@ -52,10 +63,10 @@ Contattare il docente di laboratorio
 
 ### Tramite `winget`
 
-È possibile installare la distribuzione di Adoptium JDK 25 attraverso il seguente comando su `PowerShell`:
+È possibile installare la distribuzione di Amazon Corretto 25 attraverso il seguente comando su `PowerShell`:
 
 ```powershell
-winget install -e --id EclipseAdoptium.Temurin.25.JDK
+winget install -e --id Amazon.Corretto.25.JDK
 ```
 
 L'installazione del pacchetto dovrebbe automaticamente impostare la variabile d'ambiente `JAVA_HOME` correttamente.  
@@ -67,22 +78,11 @@ Riavviare la `PowerShell` per verificare la corretta installazione del JDK.
 
 I passi in comune a tutte le versioni di Windows sono i seguenti (di seguito si fa riferimento a Windows 10, analogamente per le versioni precedenti con eventuali variazioni in termini di interfaccia utente):
 
-1. Scaricare il JDK dalla [pagina di download ufficiale di Adoptium](https://adoptium.net/temurin/releases).
-   Scegliere la versione 25, filtrando anche per sistema operativo (Windows) e per architettura (x64). Cliccare il download <i class="fa fa-download"></i>`.msi`.
-   
-   ![Missing image](img/win10/adopt1.png)
-   
+1. Scaricare il JDK dalla [pagina di download ufficiale di Amazon Corretto](https://corretto.aws/downloads/latest/amazon-corretto-25-x64-windows-jdk.msi).   
 2. Eseguire l'installer scaricato e seguire il wizard di installazione passo-passo.
 
-   ![Missing image](img/win10/adopt2.png)
 
-   Nella schermata dell'installer sopra riportata è possibile optare per la configurazione automatica delle variabili d'ambiente (si suggerisce di spuntare tutte le opzioni e procedere con l'installazione.
-   In questo caso, terminata l'installazione passare direttamente al punto 4)
-
-3. Configurazione delle variabili d'ambiente (come riportato di seguito, se necessario).
-
-4. (Dopo aver configurato le variabili d'ambiente, se necessario)
-   Aprire un prompt dei comandi per verificare l'esito positivo dello step precedente (per aprire il prompt dei comandi è sufficente cercare `cmd.exe` nel menù di Start):
+4. Aprire un prompt dei comandi per verificare l'esito positivo dello step precedente (per aprire il prompt dei comandi è sufficente cercare `cmd.exe` nel menù di Start):
 
 5. Verificare l'avvenuta installazione eseguendo i seguenti due comandi su un prompt dei comandi:
     {% highlight bash %}
@@ -142,8 +142,7 @@ Se la verifica di funzionamento dovesse fallire, si verifichi di aver configurat
 
 4. Creare la variabile denonimata __"JAVA_HOME"__ con uno dei valori seguenti e cliccare sul pulsante __"OK"__:
 
-   - `%HOMEPATH%\.jabba\jdk\<version>` se si è utilizzato Jabba;
-   - `C:\Program Files\AdoptOpenJDK\jdk-<version>-hotspot` se si è utilizzato l'installer di AdoptOpenJDK;
+   - `C:\Program Files\Amazon Corretto\jdk-25` se si è utilizzato l'installer di Amazon Corretto;
 
    ![Missing image](img/win10/env_vars/5.png "Creating JAVA_HOME")
 
@@ -184,55 +183,11 @@ javac 25
 Si noti, in particolare, la versione 25.
 
 
-# Visual Studio Code
+# IntelliJ IDEA
 
-Visual Studio Code è un editor di testo e IDE con supporto a molti linguaggi di programmazione (incluso Java).
+IntelliJ IDEA è un IDE con supporto a molti linguaggi di programmazione (incluso Java).
+Per la guida di installazione, si faccia riferimento alle [slides del corso](https://unibo-lptsi-pss.github.io/lab/00-install-intellij/#/).
 
-## Linux
-
-[Istruzioni per tutte le distribuzioni](https://code.visualstudio.com/docs/setup/linux)
-
-### Arch Linux e derivate (Manjaro, Bridge, SteamOS...)
-
-La versione Open Source è installabile dal repository `extra`,
-tipicamente abilitato di default:
-
-```bash
-sudo pacman -Syu
-sudo pacman -S code
-```
-
-In alternativa, la versione completa non open source è disponibile nel repository
-[Chaotic AUR](https://aur.chaotic.cx/).
-
-Si abiliti Chaotic AUR usando le istruzioni presenti al link precedente, quindi:
-
-```bash
-sudo pacman -Sy
-sudo pacman -S visual-studio-code-bin
-```
-
-### Distribuzioni con supporto a Flatpak
-
-È disponibile un pacchetto dedicato su [Flathub](https://flathub.org/apps/details/com.visualstudio.code)
-
-## macOS
-
-https://code.visualstudio.com/docs/setup/mac
-
-## Windows
-
-### Tramite `winget`
-
-È possibile installare `VisualStudio Code` attraverso il seguente comando `PowerShell`:
-
-```bash
-winget install -e --id Microsoft.VisualStudioCode
-```
-
-### Tramite installer
-
-https://code.visualstudio.com/docs/setup/windows
 
 
 # Git
