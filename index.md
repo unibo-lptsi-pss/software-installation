@@ -57,7 +57,7 @@ sudo ln -sfn /opt/homebrew/opt/openjdk@25/libexec/openjdk.jdk /Library/Java/Java
 
 ### Con file .pkg
 
-Potete scaricare il pacchetto da installare da qui [Adoptium](https://adoptium.net/temurin/releases?version=25)
+Potete scaricare il pacchetto da installare dalla pagina di download di [Adoptium](https://adoptium.net/temurin/releases?version=25)
 
 ## Windows
 
