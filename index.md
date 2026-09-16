@@ -26,14 +26,8 @@ Arch offre il pacchetto OpenJDK 25 direttamente nel repository `extra`:
 
 ```bash
 sudo pacman -Syu
-sudo pacman -S jdk-openjdk
+sudo pacman -S jdk25-openjdk
 ```
-
-**Nota per questo inizio dell'anno**:
-Ancora OpenJDK 25 non è disponibile nei repository ufficiali di Manjaro, per cui si consiglia di utilizzare AUR via yay:
-```
-yay -S java-openjdk-bin
-``` 
 
 È possibile avere più ambienti Java installati contemporaneamente, si può selezionare quello corrente utilizzando il comando ``archlinux-java``.
 Per assicurarsi di star lavorando con OpenJDK 25, si utilizzi:
@@ -42,11 +36,6 @@ Per assicurarsi di star lavorando con OpenJDK 25, si utilizzi:
 sudo archlinux-java set java-25-openjdk
 ```
 
-**Nota per questo inizio dell'anno**:
-Se avete usato la version binaria da AUR, il comando sarà:
-```
-sudo archlinux-java set java-25-openjdk-bin
-```
 ### Debian e Ubuntu
 
 Installare il deb da: [https://pkgs.org/download/openjdk-25-jdk](https://pkgs.org/download/openjdk-25-jdk)
@@ -57,7 +46,18 @@ Contattare il docente di laboratorio
 
 ## macOS
 
-Contattare il docente di laboratorio
+### Con homebrew
+
+Potete installare il JDK tramite [homebrew](https://brew.sh), che deve essere preventivamente installato nel sistema (è sufficiente eseguire un comando shell descritto nella pagina web):
+
+```bash
+brew install openjdk@25
+sudo ln -sfn /opt/homebrew/opt/openjdk@25/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-25.jdk
+```
+
+### Con file .pkg
+
+Potete scaricare il pacchetto da installare da qui [Adoptium](https://adoptium.net/temurin/releases?version=25)
 
 ## Windows
 
@@ -78,9 +78,8 @@ Riavviare la `PowerShell` per verificare la corretta installazione del JDK.
 
 I passi in comune a tutte le versioni di Windows sono i seguenti (di seguito si fa riferimento a Windows 10, analogamente per le versioni precedenti con eventuali variazioni in termini di interfaccia utente):
 
-1. Scaricare il JDK dalla [pagina di download ufficiale di Amazon Corretto](https://corretto.aws/downloads/latest/amazon-corretto-25-x64-windows-jdk.msi).   
+1. Scaricare il JDK dalla [pagina di download di Adoptium](https://adoptium.net/temurin/releases?version=25).   
 2. Eseguire l'installer scaricato e seguire il wizard di installazione passo-passo.
-
 
 4. Aprire un prompt dei comandi per verificare l'esito positivo dello step precedente (per aprire il prompt dei comandi è sufficente cercare `cmd.exe` nel menù di Start):
 
@@ -94,6 +93,9 @@ I passi in comune a tutte le versioni di Windows sono i seguenti (di seguito si 
 
 Su Windows sono disponibli diversi pacakge manager non ufficiali o semi-ufficiali che permettono l'installazione di distribuzioni OpenJDK.
 
+<!--
+TODO sembra che la versione 25 non sia più disponibile
+
 #### Opzione 1: Chocolatey
 
 Se sulla macchina [è installato Chocolatey](https://chocolatey.org/docs/installation), è possibile installare OpenJDK 25 eseguendo il seguente comando su un terminale con permessi di amministratore:
@@ -103,8 +105,10 @@ choco install openjdk25
 ```
 
 L'installazione dovrebbe eseguire una configurazione automatica delle variabili d'ambiente.
+-->
 
-#### Opzione 2: Scoop
+<!-- #### Opzione 2: Scoop -->
+#### Scoop
 
 Se sulla macchina [è installato Scoop](https://scoop.sh), è possibile installare OpenJDK 25 eseguendo il seguente comando su un terminale:
 
